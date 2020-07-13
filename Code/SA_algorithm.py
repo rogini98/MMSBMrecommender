@@ -112,11 +112,11 @@ def align(n, m, Tmax=10, Tmin=0.01, IterMax=100000, updates=1000):
     # Return best state and energy
     return bestEnergy, best_alignment_r, best_alignment_c
 
-def run_alignments(reference=1, rows=2, columns=3, nsamples=500, perspective_column=0):
-    folderin = "../../../results/mmsbm/raw/2by3/proba_sp_site/"
-    folderout = "../../../results/mmsbm/processed/1-alignments/2by3"
+def run_alignments(reference=1, rows=10, columns=10, nsamples=500, perspective_column=0):
+    folderin = "../Data/output/raw/10by10/proba_mat/"
+    folderout = "../Data/output/processed/alignments/10by10"
 
-    nmat=[x.strip().split() for x in open(folderin+str(reference)+"proba2gp-3gp.dat", "r").readlines()]
+    nmat=[x.strip().split() for x in open(folderin+str(reference)+"proba10gp-10gp.dat", "r").readlines()]
     nmat=np.asarray(nmat)[:,perspective_column].reshape((rows,columns)).astype(np.float)
 
     results=np.zeros((1+rows+columns,nsamples)).astype(int)
@@ -127,7 +127,7 @@ def run_alignments(reference=1, rows=2, columns=3, nsamples=500, perspective_col
         if iii==reference:
             continue
 
-        mmat=[x.strip().split() for x in open(folderin+"/"+str(iii)+"proba2gp-3gp.dat", "r").readlines()]
+        mmat=[x.strip().split() for x in open(folderin+"/"+str(iii)+"proba10gp-10gp.dat", "r").readlines()]
         mmat=np.asarray(mmat)[:,perspective_column].reshape((rows,columns)).astype(np.float)
 
         bestEnergy, best_alignment_r, best_alignment_c = align(nmat, mmat, updates=0)
@@ -135,5 +135,4 @@ def run_alignments(reference=1, rows=2, columns=3, nsamples=500, perspective_col
         results[0,iii]=bestEnergy
         results[1:,iii]=np.concatenate((best_alignment_r, best_alignment_c), axis=0)
 
-    np.save(folderout+str(reference)+"proba2gp-3gp.dat", results)
-
+    np.save(folderout+str(reference)+"proba10gp-10gp.dat", results)
