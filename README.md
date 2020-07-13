@@ -9,9 +9,7 @@ python -c "import mmsbm_recommender as mm; mm.run_sampling(nsampling = 1, iterat
 This model uses an Expectation Maximisation algorithm to infer the model parameters visitor groups membership, place groups membership and the probability of interaction between visitor and place groups which maximise the likelihood of the observed travelling patterns. 
 As iterating the Expectation Maximisation algorithm with different initial conditions can lead to different solutions, we performed 500 independent runs ('sampling' in the code). We suggest distributing the sampling process, given that they are independent processes which speed up the computation.
 
-Note that to characterise the visitor groups (*K*) and place groups (*L*) from the visitation network we made the following modifications to the original code: 
-- length of dictionnaries are used instead of taking the max number of the "visitors"/"places" columns as per original code
-- parameters (theta/eta/probability matrix) are saved in separate files for each sampling 
+Note that as we are particularly interested in characterising the group memberships of visitors and places from the observed visitation network the parameters (theta/eta/probability matrix) are saved in separate files for each sampling. 
 
 The following output files 'theta.dat', 'eta.dat', 'proba-K-L.dat' are generated for each of the 500 runs of the model.
 
@@ -21,7 +19,7 @@ Though the MMSBM allows us to identify the optimal number of visitor groups (*K*
 The code is written in python. To run the code:
 python -c "import SA_alignment as sa; sa.run_alignments(reference = 1, rows = 10, columns = 10)"; where **reference** refers to the probability matrix assumed to have the "true" labels; rows and columns refer to the number of rows and columns of the porbability matrix.
 
-The following output file is produced "ref_proba_K_L.npy".
+The following output file is produced "reference_proba_K_L.npy".
 
 ## Reordering the group labels across the posteriors based on the best matching of group labels identified by the SA algorithm
 Using the best permutation of the group labels obtained from the previous step, we then reordered the labels of the visitor group and place groups across the 500 independent model fits. 
