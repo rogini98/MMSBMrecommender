@@ -1,5 +1,5 @@
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-# Mixed membership stochastic block model (Godoy-Lorite et al. 2016) 
+# Mixed membership stochastic block model (Godoy-Lorite et al. 2016)
 #%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 #-----------------------------------------------------------------------
 # Following modifications has been done to the original code
@@ -11,7 +11,7 @@
 
 #importing the different modules
 import sys
-import numpy as np 
+import numpy as np
 from math import *
 import copy
 import random
@@ -72,7 +72,7 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
     #theta = vector containing the different groups to which each user belongs to
     theta = np.random.rand(n_users,K) / users_denom[:,np.newaxis]
 
-    #eta = vector containing the different groups to which each place belongs to 
+    #eta = vector containing the different groups to which each place belongs to
     eta = np.random.rand(n_places,L) / places_denom[:,np.newaxis]
 
     # 3d matrix containing random probabilities of ratings across user-group and place-group combos
@@ -117,10 +117,10 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
         # normalize the places' membership probabilities across groups
         neta = neta / places_denom[:,np.newaxis]
 
-        # normalize the probabilities across ratings            
+        # normalize the probabilities across ratings
         npr = npr / npr.sum(axis=0)
 
-        # create copies of previous values and zero'd estimates as placeholders                        
+        # create copies of previous values and zero'd estimates as placeholders
         theta = copy.deepcopy(ntheta)
         eta = copy.deepcopy(neta)
         pr = copy.deepcopy(npr)
@@ -130,7 +130,7 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
         neta = neta*0
         npr = npr*0
 
-    # calculate the likelihood given the probabilities        
+    # calculate the likelihood given the probabilities
     Like = 0.
     for n, m, ra in linksr:
         D = 0.
@@ -195,10 +195,10 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
 
 def run_sampling(training,
              test,
-             ofolder="../../../data-test/processed/",
-             K=4,
-             L=4,
-             nsampling=500,
+             ofolder="../Data/output/raw/",
+             K=10,
+             L=10,
+             nsampling=1,
              iterations=200,
              zeros_as_null=True,
              verbose=True):
