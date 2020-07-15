@@ -5,7 +5,7 @@ To characterise the visitor--place network, we used the Mixed Membership Stochas
 The original code for mixed-membership stochastic block model algorithm was taken from Godoy-Lorite et al. 2016 (article https://www.pnas.org/content/113/50/14207).
 
 The code is written in python. To run the code:
-python -c "import mmsbm_recommender as mm; mm.run_sampling(nsampling = 1, iterations = 200, training='./data/training_dataset.dat', test='./data/test_dataset.dat', ofolder = './results/', K=10, L=10)"; where K is the number of group-memberships for visitors and L is the number of group memberships for places, and both "nsampling" and "iterations" are optional parameters such that default values are 1 for nsampling and 200 for iterations.
+python -c "import mmsbm_recommender as mm; mm.run_sampling(nsampling = 1, iterations = 200, training='./Data/raw/training_dataset.dat', test='./Data/raw/test_dataset.dat', ofolder = './Data/output/', K=10, L=10)"; where K is the number of group-memberships for visitors and L is the number of group memberships for places, and both "nsampling" and "iterations" are optional parameters such that default values are 1 for nsampling and 200 for iterations.
 
 This model uses an Expectation Maximisation algorithm to infer the model parameters visitor groups membership, place groups membership and the probability of interaction between visitor and place groups which maximise the likelihood of the observed travelling patterns. 
 As iterating the Expectation Maximisation algorithm with different initial conditions can lead to different solutions, we performed 500 independent runs ('sampling' in the code). We suggest distributing the sampling process, given that they are independent processes which speed up the computation.
