@@ -113,7 +113,7 @@ def align(n, m, Tmax=10, Tmin=0.01, IterMax=100000, updates=1000):
     return bestEnergy, best_alignment_r, best_alignment_c
 
 def run_alignments(reference=1, rows=10, columns=10, nsamples=500, perspective_column=0):
-    folderin = "../Data/output/raw/10by10/proba_mat/"
+    folderin = "../Data/output/raw/proba_mat/"
     folderout = "../Data/output/processed/alignments/10by10"
 
     nmat=[x.strip().split() for x in open(folderin+str(reference)+"proba10gp-10gp.dat", "r").readlines()]
