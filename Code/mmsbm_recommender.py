@@ -144,12 +144,12 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
     if verbose:
         print Like
 
-    fout = open(ofolder+str(c)+'_Likelihood'+str(K)+'gp'+str(L)+'gp.dat',"w")
+    fout = open(ofolder+'likelihood/'+str(c)+'_Likelihood'+str(K)+'gp'+str(L)+'gp.dat',"w")
     fout.write('%s\n' % Like)
     fout.close()
 
     #theta : gp membership vector of visitors
-    theta_vector = open(ofolder+str(c)+'_visitor_gp'+str(K)+'.dat',"w")
+    theta_vector = open(ofolder+'visitor_gp/'+str(c)+'_visitor_gp'+str(K)+'.dat',"w")
     for i in user_dict.keys():
         row_num = user_dict[i][0]
         for k in range(K):
@@ -159,7 +159,7 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
     theta_vector.close()
 
     #eta : gp membership vectors of places
-    eta_vector = open(ofolder+str(c)+'_place_gp'+str(L) +'.dat',"w")
+    eta_vector = open(ofolder+'place_gp/'+str(c)+'_place_gp'+str(L) +'.dat',"w")
     for j in place_dict.keys():
         row_num = place_dict[j][0]
         for l in range(L):
@@ -169,7 +169,7 @@ def sampling(c, ofolder, linksr, nsampling, iterations, K, L, R,
     eta_vector.close()
 
     #pr : probability matrix of observed links between gp of users & gp of places
-    proba_visit = open(ofolder+str(c)+'proba'+str(K)+'gp-'+str(L)+'gp.dat',"w")
+    proba_visit = open(ofolder+'proba_mat/'+str(c)+'proba'+str(K)+'gp-'+str(L)+'gp.dat',"w")
     for k in range(K):
         for l in range(L):
             for r in range(R):
