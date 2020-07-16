@@ -200,7 +200,7 @@ def run_sampling(training,
              L=10,
              nsampling=1,
              iterations=200,
-             zeros_as_null=True,
+             zeros_as_null=False,
              verbose=True):
 
     if not zeros_as_null:
