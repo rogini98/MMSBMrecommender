@@ -22,7 +22,7 @@ python -c "import SA_algorithm as sa; sa.run_alignments(reference = 1, rows = 10
 
 The following output file is produced "reference_proba_K_L.npy".
 
-## Reordering the group labels across the posteriors based on the best matching of group labels identified by the SA algorithm
+## Reordering the group labels of posteriors
 Using the best permutation of the group labels obtained from the previous step, we then reorder the labels of the raw outputs obtained from the MMSBM -- i.e. the visitor group and place groups across the 500 independent model fits. 
 
 The code is written in python. To run the code:
