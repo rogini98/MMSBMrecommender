@@ -63,7 +63,7 @@ def permute_user_gp(
             continue
 
         # read in the sample and reshape it in matrix format
-        mmat = [x.strip().split() for x in open(folderin+str(iii)+"_visitorgp10.dat", "r").readlines()]
+        mmat = [x.strip().split() for x in open(folderin+str(iii)+"_visitor_gp10.dat", "r").readlines()]
 
         # get the user id
         user_id = np.asarray(mmat)[:,0]
@@ -99,7 +99,7 @@ def permute_place_gp(
             continue
 
         # read in the sample and reshape it in matrix format
-        mmat = [x.strip().split() for x in open(folderin+str(iii)+"_placegp10.dat", "r").readlines()]
+        mmat = [x.strip().split() for x in open(folderin+str(iii)+"_place_gp10.dat", "r").readlines()]
 
         # get the place id
         place_id = np.asarray(mmat)[:,0]
