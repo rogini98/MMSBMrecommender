@@ -14,7 +14,7 @@ import pandas as pd
 from collections import OrderedDict
 
 def permute_proba_mat(
-	reference = 1,
+	reference = 0,
     	folderin = "../Data/output/raw/proba_mat/",
 	folderout = "../Data/output/processed/reordered/proba_mat/",
 	rows = 10,
