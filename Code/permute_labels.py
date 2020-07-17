@@ -15,7 +15,7 @@ from collections import OrderedDict
 
 def permute_proba_mat(
 	reference = 1,
-    	folderin = "../Data/output/raw/prob_mat/",
+    	folderin = "../Data/output/raw/proba_mat/",
 	folderout = "../Data/output/processed/reordered/proba_mat/",
 	rows = 10,
 	columns = 10,
@@ -43,18 +43,18 @@ def permute_proba_mat(
         print permuted_labels[:rows] # permuted labels of rows
         print permuted_labels[rows:] # permuted labels of columns
 
-        # now reorder sample 
-        reordered_mat = mmat[permuted_labels[:rows],:] # reorder rows of 
+        # now reorder sample
+        reordered_mat = mmat[permuted_labels[:rows],:] # reorder rows of
         reordered_mat = mmat[:, permuted_labels[rows:]] # reorder columns of proba mat
 
         # save files as text
         np.savetxt(folderout+str(iii)+"reordered_proba10gp-10gp.txt", reordered_mat)
 
 def permute_user_gp(
-    reference = 41,
+    reference = 0,
 	folderin = "../Data/output/raw/visitor_gp/",
 	folderout = "../Data/output/processed/reordered/visitor_gp/",
-	rows = 100,
+	rows = 10000,
 	columns = 10,
 	nsamples = 500):
 
@@ -87,10 +87,10 @@ def permute_user_gp(
 	np.savetxt(folderout+str(iii)+"reordered_visitorgp10.txt", reordered_mat)
 
 def permute_place_gp(
-    reference = 41,
+    reference = 0,
 	folderin = "../Data/output/raw/place-gp/",
 	folderout = "../Data/output/processed/reordered/place_gp/",
-	rows = 100,
+	rows = 1000,
 	columns = 10,
 	nsamples = 500):
 
