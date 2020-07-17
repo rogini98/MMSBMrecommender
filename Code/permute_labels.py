@@ -84,7 +84,7 @@ def permute_user_gp(
 
 def permute_place_gp(
     reference = 0,
-	folderin = "../Data/output/raw/place-gp/",
+	folderin = "../Data/output/raw/place_gp/",
 	folderout = "../Data/output/processed/reordered/place_gp/",
 	rows = 1000,
 	columns = 10,
