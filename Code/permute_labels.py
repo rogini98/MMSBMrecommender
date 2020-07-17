@@ -32,16 +32,12 @@ def permute_proba_mat(
 
         # read in the sample and reshape it in matrix format
         mmat = [x.strip().split() for x in open(folderin+str(iii)+"proba10gp-10gp.dat", "r").readlines()]
+
         ## select the 2nd column and format it
         mmat = np.asarray(mmat)[:,0].reshape((rows,columns)).astype(np.float)
-        print mmat
-        #print mmat.shape
 
         # extract permuted labels of sample from results
         permuted_labels = results[1:, iii]
-        #print permuted_labels
-        print permuted_labels[:rows] # permuted labels of rows
-        print permuted_labels[rows:] # permuted labels of columns
 
         # now reorder sample
         reordered_mat = mmat[permuted_labels[:rows],:] # reorder rows of
