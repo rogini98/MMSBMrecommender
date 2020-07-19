@@ -71,9 +71,7 @@ def permute_user_gp(
 
         ## select the 2nd column [contains proba of gp membership]
         mmat = np.asarray(mmat)[:,1].reshape((rows,columns)).astype(np.float)
-        #print mmat.shape
-        #print mmat[1,:]
-
+        
         # extract permuted labels of sample from results
         permuted_labels = results[1:, iii]
 
@@ -104,8 +102,6 @@ def permute_place_gp(
         # get the place id
         place_id = np.asarray(mmat)[:,0]
         place_id = list(OrderedDict.fromkeys(place_id))
-        print len(place_id)
-        print place_id
 
         ## select the 1st column and format it
         mmat = np.asarray(mmat)[:,1].reshape((rows,columns)).astype(np.float)
@@ -113,9 +109,7 @@ def permute_place_gp(
 
         # extract permuted labels of sample from results
         permuted_labels = results[1:, iii]
-        print permuted_labels
-        print permuted_labels[-columns:] # permuted labels of columns
-
+        
         # now reorder sample
         reordered_mat = mmat[:, permuted_labels[-columns:]] # reorder columns of proba mat
         np.savetxt(folderout+str(iii)+"reordered_placegp10.txt", reordered_mat)
