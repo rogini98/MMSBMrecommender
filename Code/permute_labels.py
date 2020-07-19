@@ -86,7 +86,7 @@ def permute_place_gp(
     reference = 0,
 	folderin = "../Data/output/raw/place_gp/",
 	folderout = "../Data/output/processed/reordered/place_gp/",
-	rows = 1000,
+	rows = 10,
 	columns = 10,
 	nsamples = 500):
 
@@ -104,7 +104,7 @@ def permute_place_gp(
         # get the place id
         place_id = np.asarray(mmat)[:,0]
         place_id = list(OrderedDict.fromkeys(place_id))
-        print len(plaace_id)
+        print len(place_id)
         print place_id
 
         ## select the 1st column and format it
