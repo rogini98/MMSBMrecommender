@@ -25,6 +25,7 @@ The following output files 'visitor_gpK.dat', 'place_gpL.dat', 'proba-Kgp-Lgp.da
 
 ## 2. Find the best matching of group labels using Simulated Annealing algorithm
 *SA_algorithm.py*
+
 Though the MMSBM allows us to identify the optimal number of visitor groups (*K*) and place groups (*L*), the model does not distinguish between group labels---which is crucial in our case. For instance distinguishing whether a particular visitor group 2 was consistently observed to travel to places of group 1 in the 500 independent runs of the model is important---especially to characterise the behaviour of the different visitor groups. However, as we had no prior knowledge of "true" labels of the visitor and place groups, we considered the solution having the maximum likelihood as our "true" labels of the visitor groups and place groups. Using the aforementioned assumed "true" probability matrix, we used a Simulated Annealing algorithm---which is an optimisation function---to find the best matching of the labels for each of the probability matrix obtained from the 500 independent fits of our model. 
 
 The code is written in python. To run the code:
@@ -34,6 +35,7 @@ The following output file is produced "reference_proba_K_L.npy".
 
 ## 3. Reordering the group labels of posteriors
 *permute_labels.py*
+
 Using the best permutation of the group labels obtained from the previous step, we then reorder the labels of the raw outputs obtained from the MMSBM -- i.e. the visitor group and place groups across the 500 independent model fits. 
 
 The code is written in python. To run the code:
