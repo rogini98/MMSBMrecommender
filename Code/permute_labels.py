@@ -33,8 +33,8 @@ def permute_proba_mat(
         # read in the sample and reshape it in matrix format
         mmat = [x.strip().split() for x in open(folderin+str(iii)+"proba10gp-10gp.dat", "r").readlines()]
 
-        ## select the 2nd column and format it
-        mmat = np.asarray(mmat)[:,1].reshape((rows,columns)).astype(np.float)
+        ## select the 1st column and format it
+        mmat = np.asarray(mmat)[:,0].reshape((rows,columns)).astype(np.float)
 
         # extract permuted labels of sample from results
         permuted_labels = results[1:, iii]
@@ -43,8 +43,8 @@ def permute_proba_mat(
         reordered_mat = mmat[permuted_labels[:rows],:] # reorder rows of
         reordered_mat = reordered_mat[:, permuted_labels[rows:]] # reorder columns of proba mat
 
-        # save files as text
-        np.savetxt(folderout+str(iii)+"reordered_proba10gp-10gp.txt", reordered_mat)
+        # save files as text with each row on a new line
+        np.savetxt(folderout+str(iii)+"reordered_proba10gp-10gp.txt", reordered_mat, newline='\r\n')
 
 def permute_user_gp(
     reference = 0,
