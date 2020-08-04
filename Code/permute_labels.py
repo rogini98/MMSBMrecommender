@@ -1,8 +1,7 @@
-#----------------------------------------------------
-# run alignment function on the 500 independent runs
-# to find the permuted labels
-# then reorder the labels in raw mmsbm outputs
-#----------------------------------------------------
+#--------------------------------------------------------------------------------------------------
+# This script imports output from SA_algorithm.py (which has the best matching of the group labels)
+# then reorder the labels of the posteriors of raw mmsbm outputs
+#--------------------------------------------------------------------------------------------------
 
 import os
 import numpy as np
@@ -66,7 +65,7 @@ def permute_user_gp(
         mmat = [x.strip().split() for x in open(folderin+str(iii)+"_visitor_gp10.dat", "r").readlines()]
 
         # get the user id
-        user_id = np.asarray(mmat)[:,0]
+        use about the implementation which bits I am missing out.  r_id = np.asarray(mmat)[:,0]
         user_id = list(OrderedDict.fromkeys(user_id))
 
         ## select the 1st column [contains proba of gp membership]
