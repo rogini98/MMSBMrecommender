@@ -1,11 +1,11 @@
 # MMSBMrecommender for visitation networks 
-To characterise the visitor--place network, we used the Mixed Membership Stochastic Block Model inference approach of Godoy-Lorite et al. (2016). 
-The original code for mixed-membership stochastic block model algorithm was taken from Godoy-Lorite et al. 2016 (article https://www.pnas.org/content/113/50/14207).
+To characterise the visitor--place network, we used the Mixed Membership Stochastic Block Model (MMSBM) inference approach of Godoy-Lorite et al. (2016). 
+The original code for mixed-membership stochastic block model algorithm was taken from Godoy-Lorite et al. 2016 (article https://www.pnas.org/content/113/50/14207). 
 
 This model uses an Expectation Maximisation algorithm to infer the model parameters visitor groups membership, place groups membership and the probability of interaction between visitor and place groups which maximise the likelihood of the observed travelling patterns (Godoy-Lorite et al. 2016). 
 As iterating the Expectation Maximisation algorithm with different initial conditions can lead to different solutions, we performed 500 independent runs ('sampling' in the code). We suggest distributing the sampling process, given that they are independent processes which speed up the computation.
 
-Additionally, as we are particularly interested in characterising the group memberships of visitors and places from the observed visitation network, in our current analysis we fit the MMSBM to identify group membership of visitors and places respectively (using the *mmsbm_recommender.py* script). We then used the Simulated Annealing algorithm (using the *SA_algorithm.py* script) to find the best permuation of the order of the visitor and place group labels (refer to the sections below for further information) and reorganise our model fits (using *permute_labels.py* on output from the *SA_algorithm.py* script) obtained from the MMSBM.
+Additionally, we are particularly interested in characterising the group memberships of visitors and places from the observed visitation network, in our current analysis we fit the MMSBM to identify group membership of visitors and places respectively (using the *mmsbm_recommender.py* script). We then used the Simulated Annealing algorithm (using the *SA_algorithm.py* script) to find the best permuation of the order of the visitor and place group labels (refer to the sections below for further information) and reorganise our model fits (using *permute_labels.py* on output from the *SA_algorithm.py* script) obtained from the MMSBM.
 
 We have also provided an example of the analysis and output generated from the test data set provided.
 
@@ -50,3 +50,7 @@ python -c "import permute_labels as perm; perm.permute_proba_mat(); perm.permute
 ```
 
 The following output file is produced "X_reordered_proba_K_L.txt", "X_visitor_gp_K.txt", "X_place_gp_L.txt" where X is the sampling number.
+
+# References
+1. Godoy-Lorite et al. (2016) Accurate and scalable social recommendation using mixed-membership stochastic block models (https://doi.org/10.1073/pnas.1606316113)
+2. Runghen et al. (2021) Assessing unintended human-mediated dispersal using visitation networks (https://doi.org/10.1111/1365-2664.13829)
